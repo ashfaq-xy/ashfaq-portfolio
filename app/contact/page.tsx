@@ -20,7 +20,7 @@ const contactItems = [
   {
     icon: <LinkedinIcon size={20} />,
     label: "LinkedIn",
-    value: "linkedin.com/in/mdashfaq",
+    value: "linkedin.com/in/work-mdashfaq",
     href: socialLinks.find((l) => l.icon === "linkedin")?.url || "#",
     external: true,
   },
