@@ -6,8 +6,7 @@ import { personalInfo, socialLinks } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description:
-    "Get in touch with Md Ashfaq — open to AI/ML internships, collaborations, and opportunities.",
+  description: "Get in touch with Md Ashfaq — open to AI/ML internships and collaborations.",
 };
 
 const contactItems = [
@@ -36,44 +35,42 @@ const contactItems = [
 
 export default function ContactPage() {
   return (
-    <section className="py-20">
+    <section className="relative py-24">
       <div className="max-w-3xl mx-auto px-6">
         <SectionHeading
           label="Let's connect"
-          title="Get in touch"
+          title="Ready to build something"
+          highlight="great?"
           subtitle="I'm open to internship roles and collaborations — feel free to reach out."
         />
 
-        <div className="space-y-4 mb-10">
+        <div className="space-y-4 mb-12">
           {contactItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
               target={item.external ? "_blank" : undefined}
               rel={item.external ? "noopener noreferrer" : undefined}
-              className="flex items-center gap-4 bg-bg-surface rounded-xl border border-[rgba(255,255,255,0.06)] p-5 hover:border-accent/30 hover:bg-bg-elevated transition-all duration-200 group"
-              aria-label={`${item.label}: ${item.value}${item.external ? " (opens in new tab)" : ""}`}
+              className="group glow-card flex items-center gap-5 p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(108,142,245,0.06)]"
+              aria-label={`${item.label}: ${item.value}`}
             >
-              <div className="w-10 h-10 rounded-lg bg-accent-dim flex items-center justify-center text-accent flex-shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-[rgba(108,142,245,0.08)] border border-[rgba(108,142,245,0.15)] flex items-center justify-center text-accent flex-shrink-0 group-hover:shadow-[0_0_20px_rgba(108,142,245,0.15)] transition-all duration-300">
                 {item.icon}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-xs font-medium text-text-subtle tracking-wide uppercase mb-0.5">
+                <p className="text-[10px] font-bold text-[#4a4f6a] tracking-[0.2em] uppercase mb-0.5">
                   {item.label}
                 </p>
-                <p className="text-sm text-text-primary truncate">{item.value}</p>
+                <p className="text-sm font-medium text-white truncate">{item.value}</p>
               </div>
               {item.external && (
-                <ExternalLink
-                  size={14}
-                  className="text-text-subtle group-hover:text-accent transition-colors flex-shrink-0"
-                />
+                <ExternalLink size={14} className="text-[#3a3f5a] group-hover:text-accent transition-colors flex-shrink-0" />
               )}
             </a>
           ))}
         </div>
 
-        <div className="flex items-center gap-2 text-sm text-text-subtle">
+        <div className="flex items-center gap-2.5 text-sm text-[#4a4f6a]">
           <MapPin size={14} />
           <span>{personalInfo.location} · {personalInfo.availability}</span>
         </div>

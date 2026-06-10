@@ -5,25 +5,27 @@ import { experience, education } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Experience & Education",
-  description:
-    "Professional experience and academic background of Md Ashfaq — BCA graduate, MCA student at SRM.",
+  description: "Professional experience and academic background of Md Ashfaq.",
 };
 
 export default function ExperiencePage() {
   return (
-    <section className="py-20">
+    <section className="relative py-24">
       <div className="max-w-3xl mx-auto px-6">
         <SectionHeading
           label="Background"
-          title="Experience & Education"
+          title="Experience &"
+          highlight="Education"
           subtitle="Where I've worked and what I've studied."
         />
 
-        {/* Experience */}
         <div className="mb-16">
-          <h3 className="text-xs font-semibold text-text-subtle tracking-[0.12em] uppercase mb-6">
-            Work experience
-          </h3>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-6 h-px bg-accent/30" />
+            <p className="text-[10px] font-bold text-[#4a4f6a] tracking-[0.2em] uppercase">
+              Work experience
+            </p>
+          </div>
           <div>
             {experience.map((item) => (
               <TimelineItem key={item.id} item={item} />
@@ -31,11 +33,15 @@ export default function ExperiencePage() {
           </div>
         </div>
 
-        {/* Education */}
+        <div className="section-line mb-16" />
+
         <div>
-          <h3 className="text-xs font-semibold text-text-subtle tracking-[0.12em] uppercase mb-6">
-            Education
-          </h3>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-6 h-px bg-accent/30" />
+            <p className="text-[10px] font-bold text-[#4a4f6a] tracking-[0.2em] uppercase">
+              Education
+            </p>
+          </div>
           <div>
             {education.map((item) => (
               <TimelineItem key={item.id} item={item} />

@@ -1,7 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import SectionHeading from "@/components/ui/SectionHeading";
-import SkillPill from "@/components/ui/SkillPill";
 import { skills } from "@/lib/data";
 
 export default function SkillsPreview() {
@@ -9,42 +8,54 @@ export default function SkillsPreview() {
   const tools = skills.filter((s) => s.category === "tool").slice(0, 5);
 
   return (
-    <section className="py-20 border-t border-[rgba(255,255,255,0.05)]">
-      <div className="max-w-4xl mx-auto px-6">
+    <section className="relative py-24">
+      <div className="section-line" />
+      <div className="max-w-5xl mx-auto px-6 pt-24">
         <SectionHeading
           label="Technical skills"
           title="What I work with"
+          highlight="daily."
           subtitle="Languages, tools, and environments I use regularly."
         />
 
-        <div className="mb-6">
-          <p className="text-xs font-semibold text-text-subtle tracking-[0.12em] uppercase mb-3">
+        <div className="mb-8">
+          <p className="text-[10px] font-bold text-[#4a4f6a] tracking-[0.2em] uppercase mb-4">
             Languages
           </p>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2.5">
             {languages.map((skill) => (
-              <SkillPill key={skill.name} name={skill.name} variant="accent" />
+              <span
+                key={skill.name}
+                className="px-4 py-2 text-sm font-medium rounded-lg bg-[rgba(108,142,245,0.08)] text-accent border border-[rgba(108,142,245,0.15)] hover:bg-[rgba(108,142,245,0.14)] hover:shadow-[0_0_20px_rgba(108,142,245,0.08)] transition-all duration-300"
+              >
+                {skill.name}
+              </span>
             ))}
           </div>
         </div>
 
-        <div className="mb-8">
-          <p className="text-xs font-semibold text-text-subtle tracking-[0.12em] uppercase mb-3">
-            Tools &amp; environments
+        <div className="mb-10">
+          <p className="text-[10px] font-bold text-[#4a4f6a] tracking-[0.2em] uppercase mb-4">
+            Tools & environments
           </p>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2.5">
             {tools.map((skill) => (
-              <SkillPill key={skill.name} name={skill.name} />
+              <span
+                key={skill.name}
+                className="px-4 py-2 text-sm font-medium rounded-lg bg-[#12121A] text-[#7a7f9a] border border-[rgba(255,255,255,0.06)] hover:border-[rgba(255,255,255,0.12)] hover:text-white transition-all duration-300"
+              >
+                {skill.name}
+              </span>
             ))}
           </div>
         </div>
 
         <Link
           href="/skills"
-          className="inline-flex items-center gap-2 text-sm text-accent hover:underline underline-offset-4 transition-colors"
+          className="group inline-flex items-center gap-2 text-sm font-medium text-accent hover:gap-3 transition-all duration-300"
         >
           View all skills & certifications
-          <ArrowRight size={14} />
+          <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
     </section>
