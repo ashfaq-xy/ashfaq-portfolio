@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { Mail, MapPin, ExternalLink } from "lucide-react";
+import { Mail, MapPin, ExternalLink, Phone } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 import { personalInfo, socialLinks } from "@/lib/data";
 
@@ -17,6 +17,15 @@ const contactItems = [
     href: `mailto:${personalInfo.email}`,
     external: false,
   },
+
+  {
+    icon: <Phone size={20} />,
+    label: "Phone",
+    value: "+91 7011378605",
+    href: "tel:+917011378605",
+    external: false,
+  },
+
   {
     icon: <LinkedinIcon size={20} />,
     label: "LinkedIn",
